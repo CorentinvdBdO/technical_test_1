@@ -1,0 +1,41 @@
+{
+	"lists": {
+		"repeat_forward": [
+			3
+		],
+		"repeat_backward": [
+			4
+		],
+		"ending_one": [],
+		"ending_two": [],
+		"segno": [
+			3
+		],
+		"dalsegno": [
+			6
+		],
+		"dacapo": [],
+		"tocoda": [
+			4
+		],
+		"coda": [
+			7
+		]
+	},
+	"total_number_of_measures": 8,
+	"valid": true,
+	"measure_sequence": [
+		1,
+		2,
+		3,
+		4,
+		3,
+		4,
+		5,
+		6,
+		3,
+		4,
+		7,
+		8
+	]
+}
