@@ -9,7 +9,9 @@ file_names = ["situation1.json",
               "situation5.json",
               "situation6.json",
               "situation7.json",
-              "situation8.json"
+              "situation8.json",
+              "situation9.json",
+              "situation10.json",
               ]
 
 if __name__ == '__main__':
@@ -17,6 +19,7 @@ if __name__ == '__main__':
         situation = load(open("data/" + file_name))
         expected = (situation['measure_sequence'])
         result = get_measure_sequence(create_jumps(situation['lists']), situation['total_number_of_measures'])
+        print(situation["lists"])
         print("expected: ", expected)
         print("result  : ", result)
         print()

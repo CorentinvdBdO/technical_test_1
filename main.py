@@ -77,7 +77,7 @@ def get_measure_sequence(jumps_list, total_measures):
     current_measure = 1
     measures_sequence = []
     multiple_use_jumps = [jump for jump in jumps_list if
-                          jump.single_use is False]  # Segno can be played again and should not be removed completely
+                          jump.single_use is False]  # Segno can be played again and should be remembered here
     jumps_forward = [jump for jump in jumps_list if jump.forward]
     jumps_list = [jump for jump in jumps_list if not jump.forward]
 
@@ -89,7 +89,7 @@ def get_measure_sequence(jumps_list, total_measures):
                 # Jump backward -> load compatible jumps forward
                 jumps_list += [j for j in jumps_forward
                                if j.start < jump.start  # take the jumps before the current one
-                               and jump.coda_compatible == j.coda_compatible][  # that are of the same type
+                               and (jump.coda_compatible == j.coda_compatible or jump.coda_compatible)][  # that are of the same type
                               -1:]  # keep the last one only
 
                 # Jump backward -> load multiple use jumps again (segno/dal segno pair)
@@ -111,7 +111,6 @@ def get_measure_sequence(jumps_list, total_measures):
 
 
 if __name__ == '__main__':
-    situation = load(open("data/situation3.json"))
+    situation = dict = {'lists': {'repeat_forward': [8], 'repeat_backward': [12], 'ending_one': [10], 'ending_two': [13], 'segno': [2], 'dalsegno': [5], 'dacapo': [7], 'tocoda': [6], 'coda': [8]}, 'total_number_of_measures': 17, 'valid': True}
     print(situation)
-    print(situation['measure_sequence'])
     print(get_measure_sequence(create_jumps(situation['lists']), situation['total_number_of_measures']))
